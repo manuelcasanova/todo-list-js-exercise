@@ -24,21 +24,41 @@
 //   console.log(`${title} has${complete ? " " : " not "}been completed`);
 // }
 
+// function newTask(title, description) {
+//   const task = {
+//     title: title,
+//     description: description,
+//     complete: false
+//   };
+//   return task;
+// }
+
+// function logTaskState(task) {
+//   console.log(`${task.title} has${task.complete ? " " : " not "}been completed`);
+// }
+
+// function completeTask(task){
+//   task.complete = true;
+// }
+
+// logTaskState(task1); //Clean cat litter has not been completed
+// completeTask(task1);
+// logTaskState(task1); //Clean cat litter has been completed
+
 function newTask(title, description) {
   const task = {
     title: title,
     description: description,
-    complete: false
+    complete: false,
+
+    logState: function() {
+      console.log(`${this.title} has${this.complete ? " " : " not "}been completed`);
+    },
+    markCompleted: function() {
+      this.complete = true;
+    }
   };
   return task;
-}
-
-function logTaskState(task) {
-  console.log(`${task.title} has${task.complete ? " " : " not "}been completed`);
-}
-
-function completeTask(task){
-  task.complete = true;
 }
 
 // DRIVER CODE BELOW
@@ -47,8 +67,8 @@ const task1 = newTask("Clean cat litter", "Take all the -you know- out of the bo
 const task2 = newTask("Do laundry", "Do not forget to separate the colors");
 const tasks = [task1, task2];
 
-logTaskState(task1); //Clean cat litter has not been completed
-completeTask(task1);
-logTaskState(task1); //Clean cat litter has been completed
+task1.logState();
+task1.markCompleted();
+task1.logState();
 
 // console.log(tasks);
