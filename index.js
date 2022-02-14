@@ -33,10 +33,22 @@ function newTask(title, description) {
   return task;
 }
 
+function logTaskState(task) {
+  console.log(`${task.title} has${task.complete ? " " : " not "}been completed`);
+}
+
+function completeTask(task){
+  task.complete = true;
+}
+
 // DRIVER CODE BELOW
 
 const task1 = newTask("Clean cat litter", "Take all the -you know- out of the box");
 const task2 = newTask("Do laundry", "Do not forget to separate the colors");
 const tasks = [task1, task2];
 
-console.log(tasks);
+logTaskState(task1); //Clean cat litter has not been completed
+completeTask(task1);
+logTaskState(task1); //Clean cat litter has been completed
+
+// console.log(tasks);
